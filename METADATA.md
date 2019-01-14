@@ -11,13 +11,13 @@ phone: +1(336)279-0211
 1. Fall_2018_PS_JWDC_Tissue_Collection.xlsx
     * **contents:** inventory of collected tissue broken down by type (e.g., flowers, buds, leaves, pollen) and plant_id; comments section contains data on plant damage (at time of tissue collection), which is highlighted in yellow   
     * **last updated:** 01/08/2019
-    * **previous versions:** 
+    * **previous versions:** NA
     * **file status:** incomplete; missing values for plant_id 74 (i.e., num_buds_collected, total_flowers_used) 
 2. Fall_2018_JWDC_Raw_Spatial_Data.xlsx
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:** 
+    * **contents:** raw distances and angles measured during plant mapping at Jennings Woods--Daryl Carver's land; comments section contains data on plant damage (at time of plant mapping), which is highlighted in yellow
+    * **last updated:** 01/09/2019
+    * **previous versions:** NA
+    * **file status:** complete
 3. Fall_2018_JWDC_Coordinate_Calculations.xlsx
     * **contents:**
     * **last updated:**
