@@ -39,10 +39,10 @@ phone: +1(336)279-0211
     * **previous versions:** NA
     * **file status:** incomplete; missing/conflicting data in several cells (i.e., those highlighted in yellow or red)   
 7. Fall_2018_PS_JWDC_Error_Analysis.xlsx
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:**  
+    * **contents:** calculated inter-plant distances, error statistics (error in meters, absolute value of error in meters, percent error), and error locations (i.e., intra- versus extra-aggregate error) for JWDC and PS
+    * **last updated:** 01/14/2019
+    * **previous versions:** NA
+    * **file status:** complete
 8. Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx
     * **contents:**
     * **last updated:**
