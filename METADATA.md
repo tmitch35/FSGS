@@ -79,7 +79,7 @@ phone: +1(336)279-0211
     * **last updated:**
     * **previous versions:**
     * **file status:**  
-### Column Headers (Variables), Definitions, & Descriptions
-Column Header | Definition | Description 
-------------- | ---------- | -----------
+### Column Headers (Variables): Definitions and Descriptions
+Column Header (Variable) | Definition | Description 
+------------------------ | ---------- | -----------
   
