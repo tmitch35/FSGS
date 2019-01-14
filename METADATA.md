@@ -79,7 +79,7 @@ phone: +1(336)279-0211
     * **last updated:**
     * **previous versions:**
     * **file status:**  
-## Column Headers (Variables)
+### Column Headers (Variables), Definitions, & Descriptions
 Column Header | Definition | Description 
 ------------- | ---------- | -----------
-plant_id | plant identification number | unique numerical identifier on plant tag; numbers 1–103 used for population "JWDC"; numbers 201–358 used for population "PS"  
+  
