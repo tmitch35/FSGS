@@ -34,10 +34,10 @@ phone: +1(336)279-0211
     * **previous versions:** NA
     * **file status:** complete
 6. Fall_2018_PS_JWDC_Plant_Phenotyping.xlsx
-    * **contents:** 
-    * **last updated:**
-    * **previous versions:**
-    * **file status:**  
+    * **contents:** number of fruits collected, total fruit and flower remnants on inflorescence, plant height measurements, and plant damage (i.e., presence/absence, damage type); comments section contains data on plant damage (at time of plant phenotyping) plus damage comments from Fall_2018_PS_JWDC_Tissue_Collection.xlsx and Fall_2018_JWDC_Raw_Spatial_Data.xlsx; all damage comments are highlighted in yellow   
+    * **last updated:** 01/08/2019
+    * **previous versions:** NA
+    * **file status:** incomplete; missing/conflicting data in several cells (i.e., those highlighted in yellow or red)   
 7. Fall_2018_PS_JWDC_Error_Analysis.xlsx
     * **contents:**
     * **last updated:**
