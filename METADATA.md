@@ -19,10 +19,10 @@ phone: +1(336)279-0211
     * **previous versions:** NA
     * **file status:** complete
 3. Fall_2018_JWDC_Coordinate_Calculations.xlsx
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:** 
+    * **contents:** calculations, conversions, and x/y coordinates (of mapped plants in "JWDC") standardized to fixed point A
+    * **last updated:** 01/06/2019
+    * **previous versions:** NA
+    * **file status:** complete
 4. Fall_2018_PS_Raw_Spatial_Data.xlsx
     * **contents:**
     * **last updated:**
