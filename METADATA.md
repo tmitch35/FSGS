@@ -44,10 +44,10 @@ phone: +1(336)279-0211
     * **previous versions:** NA
     * **file status:** complete
 8. Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:**  
+    * **contents:** population GPS coordinates, standardized fixed point x/y coordinates, conversion factors used in JWDC coordinate calculations, soil sample locations, and aggregate marker x/y coordinates
+    * **last updated:** 01/08/2019
+    * **previous versions:** NA
+    * **file status:** complete
 ### Files for Analysis
 9.  (copy & paste name here)
     * **contents:**
