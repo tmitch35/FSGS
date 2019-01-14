@@ -5,9 +5,8 @@ Department of Biological Sciences, Kent State University
 PO Box 5190, Kent, Ohio, 44242-0001   
 email: tmitch35@kent.edu    
 phone: +1(336)279-0211 
-## Project Description
 ## Methods
-## Data files
+## Project Data files
 ## Column Headers (Variables)
 Column Header | Definition | Description 
 ------------- | ---------- | -----------
