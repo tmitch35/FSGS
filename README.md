@@ -20,4 +20,6 @@ Please read CONTRIBUTING.md for details on our code of conduct and instructions 
   + writing edits 
 ## License
 This project is licensed under the KSU License. See the LICENSE.md file for details.
+## Metadata 
+See [METADATA.md](https://github.com/tmitch35/FSGS/blob/master/METADATA.md) file for contact information, project data files, column headers (variables), and methods.  
 ## Acknowledgments
