@@ -48,80 +48,50 @@ phone: +1(336)279-0211
     * **last updated:** 01/08/2019
     * **previous versions:** NA
     * **file status:** complete
-### Files for Analysis
-9.  (copy & paste name here)
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:**  
-10. (copy & paste name here)
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:** 
-11. (copy & paste name here)
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:** 
-12. (copy & paste name here)
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:**  
-13. (copy & paste name here)
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:**  
-14. (copy & paste name here)
-    * **contents:**
-    * **last updated:**
-    * **previous versions:**
-    * **file status:**  
-### Column Headers (Variables): Definitions and Descriptions
+    
+### Column Headers Defined & Described 
 Column Header (Variable) | Definition | Description 
------------------------- | :--------- | :----------
+:----------------------- | :--------- | :----------
 `abs_val_xy1_calc_minus_xy2_calc_m` | absolute value of (inter-plant distances calculated from primary coordinates minus inter-plant distances calculated from secondary coordinates) | estimates precision of inter-plant distance calculations from fixed points 1 & 2 (when both available); calculated difference (in meters) without sign
-`abs_val_xy1_error_m` | absolute value of error (in meters) of inter-plant distances calculated from primary coordinates | calculated as ABS("xy1_calc_reference_distance_m" - "dist_to_reference_m"); calculated error (meters) without sign
-`abs_val_xy2_error_m` | absolute value of error (in meters) of inter-plant distances calculated from secondary coordinates | calculated as ABS("xy2_calc_reference_distance_m" - "dist_to_reference_m"); calculated error (meters) without sign
-`actual_xval_of_sample_site_meters` | 
-`actual_yval_of_sample_site_meters` | 
-`aggregate_id` | 
-`aggregate_members` | 
-`avg_azimuth_from_fp1_mils` | 
-`avg_azimuth_from_fp1_rads` | 
-`avg_azimuth_from_fp2_mils` | 
-`avg_azimuth_from_fp2_rads` | 
-`avg_dist_from_fp1_ft` | 
-`avg_dist_from_fp1_m` | 
-`avg_dist_from_fp2_ft` | 
-`avg_dist_from_fp2_m` | 
-`avg_dist_from_spatial_pt_ft` | 
-`avg_dist_from_spatial_pt_m` | 
-`azimuth_from_fp1_mils` | 
-`azimuth_from_fp2_mils` | 
-`azimuth_from_spatial_pt_mils` |   
-`azimuth_from_spatial_pt_rads` | 
-`azimuth_to_fp1_mils` | 
-`azimuth_to_fp2_mils` | 
-`comments_error_analysis` | 
-`comments_jwdc_plant_mapping` | 
-`comments_plant_phenotyping` | 
-`comments_ps_plant_mapping` | 
-`comments_quick_conversion_reference` | 
-`comments_raw_data_and_conversion_math` | 
-`comments_soil_sample_locations` | 
-`comments_tissue_collection` | 
-`damage_type` | 
-`dist_to_reference_ft` | 
-`dist_to_reference_m` | 
-`dist1_from_fp1_ft` | 
-`dist1_from_fp2_ft` | 
-`dist1_from_spatial_pt_ft` | 
-`dist2_from_fp1_ft` | 
-`dist2_from_fp2_ft` | 
-`dist2_from_spatial_pt_ft` | 
+`abs_val_xy1_error_m` | absolute value of error (in meters) of inter-plant distances calculated from primary coordinates | calculated as: ABS(`xy1_calc_reference_distance_m` - `dist_to_reference_m`); calculated error (meters) without sign
+`abs_val_xy2_error_m` | absolute value of error (in meters) of inter-plant distances calculated from secondary coordinates | calculated as: ABS(`xy2_calc_reference_distance_m` - `dist_to_reference_m`); calculated error (meters) without sign
+`actual_xval_of_sample_site_meters` | actual (i.e., more accurate) x value (in meters) of soil sample location | contains the actual x value (in meters) of the soil sample location; x values for "full aggregates" = x values for aggregate markers; x values for "partial aggregates" = average x value of included plant_ids; x values for plants = `x1_meters` (i.e., the same as before)
+`actual_yval_of_sample_site_meters` | actual (i.e., more accurate) y value (in meters) of soil sample location | contains the actual y value (in meters) of the soil sample location; y values for "full aggregates" = y values for aggregate markers; y values for "partial aggregates" = average y value of included plant_ids; y values for plants = `y1_meters` (i.e., the same as before)
+`aggregate_id` | identity of aggregate occupied by plant | *a priori* designation made in the field; plants separated by less than 6 inches were said to be part of the same aggregate; aggegates in "JWDC" were marked with 10 inch nails, and all distances and angles were measured relative to these markers; aggregates in "PS" were not marked 
+`aggregate_members` | all members (plant_id's) belonging to a given aggregate | contains a list or range of plant_id's that comprise a given aggregate; aggregates themselves are labeled as "JW[number]" for "JWDC" and "PS[number]" for "PS"
+`avg_azimuth_from_fp1_mils` | average azimuth measured from fixed point 1 to a given plant_id in Mils | contains azimuths values (not ranges) measured from fixed point 1 to a given plant_id (Mils); converts all "azimuth ranges" into single values for coordinate calculations
+`avg_azimuth_from_fp1_rads` | average azimuth (radians) from fixed point 1 to a given plant_id | calculated as: `avg_azimuth_from_fp1_mils` * 2Pi/6400; converts angular measurements Mils to radians
+`avg_azimuth_from_fp2_mils` | average azimuth measured from fixed point 2 to a given plant_id in Mils | contains azimuths values (not ranges) measured from fixed point 2 to a given plant_id (Mils); converts all "azimuth ranges" into single values for coordinate calculations
+`avg_azimuth_from_fp2_rads` | average azimuth (radians) from fixed point 2 to a given plant_id | calculated as: `avg_azimuth_from_fp2_mils` * 2Pi/6400; converts angular measurements Mils to radians
+`avg_dist_from_fp1_ft` | average distance (ft) from fixed point 1 to a given plant_id | calculated as: (`dist1_from_fp1_ft` + `dist2_from_fp1_ft` + `dist3_from_fp1_ft`) / 3
+`avg_dist_from_fp1_m` | average distance (meters) from fixed point 1 to a given plant_id | converts `avg_dist_from_fp1_ft`  to meters using Excel's CONVERT funtion 
+`avg_dist_from_fp2_ft` | average distance (ft) from fixed point 2 to a given plant_id | calculated as: (`dist1_from_fp2_ft` + `dist2_from_fp2_ft` + `dist3_from_fp2_ft`) / 3
+`avg_dist_from_fp2_m` | average distance (meters) from fixed point 2 to a given plant_id | converts `avg_dist_from_fp2_ft`  to meters using Excel's CONVERT funtion 
+`avg_dist_from_spatial_pt_ft` | average distance (ft) from a given spatial point (fixed point) to its respective reference_id (fixed point) | calculated as: (`dist1_from_spatial_pt_ft` + `dist2_from_spatial_pt_ft` + `dist3_from_spatial_pt_ft`) / 3
+`avg_dist_from_spatial_pt_m` | average distance (m) from a given spatial point (fixed point) to its respective reference_id (fixed point) | calculated from `avg_dist_from_spatial_pt_ft` values using Excel's CONVERT formula
+`azimuth_from_fp1_mils` | azimuth measured from fixed point 1 to a given plant_id in Mils | contains values (or ranges) of azimuths measured from fixed point 1 to a given plant_id (Mils); all azimuths were measured using a lensatic compass
+`azimuth_from_fp2_mils` | azimuth measured from fixed point 2 to a given plant_id in Mils | contains values (or ranges) of azimuths measured from fixed point 2 to a given plant_id (Mils); all azimuths were measured using a lensatic compass
+`azimuth_from_spatial_pt_mils` | azimuth measured from a given spatial_pt (fixed point) to its respective reference_id (fixed point) in Mils | contains values of azimuths (in Mils) measured from a given spatial_pt (fixed point) to its respective reference_id (fixed point); all azimuths were measured using a lensatic compass
+`azimuth_from_spatial_pt_rads` | azimuth measured from a given spatial_pt (fixed point) to its respective reference_id (fixed point) in radians | contains values of azimuths (in radians) measured from a given spatial_pt (fixed point) to its respective reference_id (fixed point); calculated as: `azimuth_from_spatial_pt_mils` * 2Pi/6400
+`azimuth_to_fp1_mils` | reverse azimuth (in Mils) measured from a given plant_id to fixed point 1 | most cells contain 'NA' for this column; reverse azimuth values were used to validate compass precision in the field; values should differ from `avg_azimuth_from_fp1_mils` by exactly 3200 Mils
+`azimuth_to_fp2_mils` | reverse azimuth (in Mils) measured from a given plant_id to fixed point 2 | all cells contain 'NA' for this column; no reverse azimuths were recorded for fixed point 2
+`comments_error_analysis` | comments pertaining to error analysis of mapped plants | includes comments added for clarity and highlights any noteworthy exceptions
+`comments_jwdc_plant_mapping` | comments pertaining to plant mapping in "JWDC" | includes notes taken in the field (i.e., during plant mapping) and comments added later on; quotation marks indicate verbatim transcriptions
+`comments_plant_phenotyping` | comments pertaining to plant phenotyping | includes notes taken in the field (i.e., during plant phenotypig) and comments added later on; quotation marks indicate verbatim transcriptions
+`comments_ps_plant_mapping` | comments pertaining to plant mapping in "PS" | includes notes taken in the field (i.e., during plant mapping) and comments added later on; quotation marks indicate verbatim transcriptions
+`comments_quick_conversion_reference` | comments pertaining to "Quick Conversion Reference" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx file | includes comments added for clarity and important reminders
+`comments_raw_data_and_conversion_math` | comments pertaining to "Raw Data & Conversion Math" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx file | includes comments added for clarity and important reminders
+`comments_soil_sample_locations` | comments pertaining to "Soil Sample Locations" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx file | includes comments added for clarity and important reminders
+`comments_tissue_collection` | comments pertaining to tissue collection | includes notes taken in the field (i.e., during tissue collection) and comments added later on; quotation marks indicate verbatim transcriptions
+`damage_type` | damage type (if "Y" for `plant_damaged`) | HERBIVORY= plant damaged by herbivores (e.g., deer); BROKE (IN TACT) = plant stem broken, but still in tact; BROKEN (NOT INTACT) = plant stem completed broken off; BROKEN (DEAD) = plant dead with broken stem; MOWED = plant mowed by Daryl Carver as of 09/23/2018; question marks after "damage_type" indicate the most-likely source of damage (but imply uncertainty)
+`dist_to_reference_ft` | distance measured (ft) from a given plant_id to its reference plant_id | includes inter-plant distaces measured (in feet) using an open reel measuring tape; distances recorded to the nearest 0.01 ft; used in error calculations
+`dist_to_reference_m` | distance measured (m) from a given plant_id to its reference plant_id | calculated from `dist_to_reference_ft` and `supplemental_dist_to_reference_in` (whichever applied) using Excel's CONVERT function; values represent inter-plant measurements in meters 
+`dist1_from_fp1_ft` | first distance measure (ft) from fixed point 1 to a given plant_id | first of three laser distance measurements (in feet) from fixed point 1 to a given plant_id
+`dist1_from_fp2_ft` | first distance measure (ft) from fixed point 2 to a given plant_id | first of three laser distance measurements (in feet) from fixed point 2 to a given plant_id
+`dist1_from_spatial_pt_ft` | distance (ft) measured from a given spatial point (fixed point) to its respective reference_id (fixed point); 1/3 | 1 out of 3 laser distance measurements (measured in feet) from a given spatial_pt (fixed point) to its respective reference_id (fixed point)
+`dist2_from_fp1_ft` | second distance measure (ft) from fixed point 1 to a given plant_id | second of three laser distance measurements (in feet) from fixed point 1 to a given plant_id
+`dist2_from_fp2_ft` | second distance measure (ft) from fixed point 2 to a given plant_id | second of three laser distance measurements (in feet) from fixed point 2 to a given plant_id
+`dist2_from_spatial_pt_ft` | distance (ft) measured from a given spatial point (fixed point) to its respective reference_id (fixed point); 2/3 | 2 out of 3 laser distance measurements (measured in feet) from a given spatial_pt (fixed point) to its respective reference_id (fixed point)
 `dist3_from_fp1_ft` | 
 `dist3_from_fp2_ft` | 
 `dist3_from_spatial_pt_ft` | 
