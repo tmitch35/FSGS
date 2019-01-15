@@ -8,7 +8,7 @@ phone: +1(336)279-0211
 ## Methods
 ## Project Data files
 ### Master Excel Files
-1. Fall_2018_PS_JWDC_Tissue_Collection.xlsx
+1. [Fall_2018_PS_JWDC_Tissue_Collection.xlsx](https://github.com/tmitch35/FSGS/blob/master/Fall_2018_PS_JWDC_Tissue_Collection.xlsx)
     * **contents:** inventory of collected tissue broken down by type (e.g., flowers, buds, leaves, pollen) and plant_id; comments section contains data on plant damage (at time of tissue collection), which are highlighted in yellow   
     * **last updated:** 01/08/2019
     * **previous versions:** NA
