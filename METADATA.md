@@ -83,7 +83,7 @@ Column Header (Variable) | Definition | Description
 `comments_raw_data_and_conversion_math` | comments pertaining to "Raw Data & Conversion Math" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx | includes comments added for clarity and important reminders
 `comments_soil_sample_locations` | comments pertaining to "Soil Sample Locations" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx | includes comments added for clarity and important reminders
 `comments_tissue_collection` | comments pertaining to tissue collection | includes notes taken in the field (i.e., during tissue collection) and comments added later on; quotation marks indicate verbatim transcriptions
-`damage_type` | damage type (if '**Y**' for `plant_damaged`) | **HERBIVORY** = plant damaged by herbivores (e.g., deer); **BROKE (IN TACT)** = plant stem broken, but still in tact; **BROKEN (NOT INTACT)** = plant stem completed broken off; **BROKEN (DEAD)** = plant dead with broken stem; **MOWED** = plant mowed by Daryl Carver as of 09/23/2018; question marks following `damage_type` values (e.g., **MOWED?**, **HERBIVORY?**) indicate a degree of uncertainty concerning the source of observed damage 
+`damage_type` | damage type (if '**Y**' for `plant_damaged`) | '**HERBIVORY**' = plant damaged by herbivores (e.g., deer); '**BROKE (IN TACT)**' = plant stem broken, but still in tact; '**BROKEN (NOT INTACT)**' = plant stem completed broken off; '**BROKEN (DEAD)**' = plant dead with broken stem; '**MOWED**' = plant mowed by Daryl Carver as of 09/23/2018; question marks following `damage_type` values (e.g., '**MOWED?**', '**HERBIVORY?**') indicate a degree of uncertainty concerning the source of observed damage 
 `dist_to_reference_ft` | distance measured (ft) from a given `plant_id` to its `reference_id` | includes inter-plant distaces measured (in feet) using an open reel measuring tape; distances recorded to the nearest 0.01 ft; used in error calculations
 `dist_to_reference_m` | distance measured (m) from a given `plant_id` to its `reference_id` | calculated from `dist_to_reference_ft` and `supplemental_dist_to_reference_in` (whichever applied) using Excel's CONVERT function; values represent inter-plant measurements in meters 
 `dist1_from_fp1_ft` | first distance measure (ft) from fixed point 1 to a given `plant_id` | first of three laser distance measurements (in feet) from fixed point 1 to a given `plant_id`
@@ -100,75 +100,74 @@ Column Header (Variable) | Definition | Description
 `flowers_for_pollen` | number of flowers used exclusively for pollen collection | indicates the number of flowers used (i.e., removed) exclusively for pollen collection; ranges from 0–3 per plant
 `flowers_preserved` | number of preserved flower specimens collected per `plant_id` | indicates the number of preserved flower specimens collected for floral morphology measurements; ranges from 0–2 per plant
 `fp1` | fixed point 1 | name of first fixed point used for distance and angle measurements; corresponds to first fixed point listed in `fixed_points_used`
-`fp2` | 
-`fruits_collected_b` | 
-`fruits_collected_m` | 
-`fruits_collected_t` | 
-`inflorescence_length_cm` | 
-`inflorescence_length_in` | 
-`intra_aggregate_x_adj_in` | 
-`intra_aggregate_x_adj_m` | 
-`intra_aggregate_y_adj_in` | 
-`intra_aggregate_y_adj_m` | 
-`iphone_lat_1` | 
-`iphone_lat_2` | 
-`iphone_long_1` | 
-`iphone_long_2` | 
-`num_buds_collected` | 
-`num_leaves_collected` | 
-`num_pollen_tubes` | 
-`plant_damaged` | 
-`plant_id` | 
-`point_type` | 
-`pop` | 
-`reference_id` | 
-`sex` | 
-`spatial_pt` | 
-`spatial_pt_mapped_in_R` | 
-`spatial_pt_sampled` | 
-`stem_length_cm` | 
-`stem_length_in` | 
-`supplemental_dist_to_reference_in` | 
-`tot_plant_height_cm` | 
-`tot_plant_height_in` | 
-`total_flowers_used` | 
-`total_fruit_flower_remnants` | 
-`total_fruits_collected` | 
-`x_feet` | 
-`x_from_spatial_pt_to_reference_m` | 
-`x_inches` | 
-`x_meters` | 
-`x_meters_newest_version` | 
-`x1_meters` | 
-`x1_meters_fp1_specific` | 
-`x1_meters_standardized_to_fpa` | 
-`x2_meters` | 
-`x2_meters_fp2_specific` | 
-`x2_meters_standardized_to_fpa` | 
-`xval_conversion_B_to_A_meters` | 
-`xval_conversion_C_to_A_meters` | 
-`xval_conversion_D_to_A_meters` | 
-`xval_in_R_meters` | 
-`xy1_calc_minus_xy2_calc_m` | 
-`xy1_calc_reference_distance_m` | 
-`xy1_error_m` | 
-`xy1_percent_error` | 
-`xy2_calc_reference_distance_m` | 
-`xy2_error_m` | 
-`xy2_percent_error` | 
-`y_feet` | 
-`y_from_spatial_pt_to_reference_m` | 
-`y_inches` | 
-`y_meters` | 
-`y_meters_newest_version` | 
-`y1_meters` | 
-`y1_meters_fp1_specific` | 
-`y1_meters_standardized_to_fpa` | 
-`y2_meters` | 
-`y2_meters_fp2_specific` | 
-`y2_meters_standardized_to_fpa` | 
-`yval_conversion_B_to_A_meters` | 
-`yval_conversion_C_to_A_meters` | 
-`yval_conversion_D_to_A_meters` | 
-`yval_in_R_meters` | 
-  
+`fp2` | fixed point 2 | name of second fixed point used for distance and angle meaurements; corresponds to second fixed point listed in `fixed_points_used`
+`fruits_collected_b` | number of fruits collected from the bottom of the inflorescence | indicates the number of fruits collected from the bottom (i.e., proximal end) of the inflorescence; used as an inventory
+`fruits_collected_m` | number of fruits collected from the middle of the inflorescence | indicates the number of fruits collected from the middle of the inflorescence; used as an inventory
+`fruits_collected_t` | number of fruits collected from the top of the inflorescence | indicates the number of fruits collected from the top (i.e., distal end) of the inflorescence; used as an inventory
+`inflorescence_length_cm` | inflorescence length, measured from the first flower to the top of the plant (cm) | length of the inflorescence (centimeters) from the first flower to the plant apex/terminus, calculated from `inflorescence_length_in` using Excel's CONVERT function
+`inflorescence_length_in` | inflorescence length, measured from the first flower to the top of the plant (inches) | length of the inflorescence (inches), measured from the first flower to the plant apex/terminus; recorded to the nearest 1/8 inch
+`intra_aggregate_x_adj_in` | intra-aggregate x (west/east) adjustment (in) | indicates position of a given `plant_id` relative to its respective aggregate marker in inches; positive values indicate `plant_id` was east of aggregate marker; negative values indicate `plant_id` was west of aggregate marker; distances were measured using an aluminum carpenter's square and a standard tape measure (recorded to the nearest 1/8 inch)
+`intra_aggregate_x_adj_m` | intra-aggregate x (west/east) adjustment (meters) | converts `intra_aggregate_x_adj_in` to meters using Excel's CONVERT function
+`intra_aggregate_y_adj_in` | intra-aggregate y (south/north) adjustment (in) | indicates position of a given `plant_id` relative to its respective aggregate marker in inches; positive values indicate `plant_id` was north of aggregate marker; negative values indicate `plant_id` was south of aggregate marker; distances were measured using an aluminum carpenter's square and a standard tape measure (recorded to the nearest 1/8 inch)
+`intra_aggregate_y_adj_m` | intra-aggregate y (south/north) adjustment (meters) | converts `intra_aggregate_y_adj_in` to meters using Excel's CONVERT function
+`iphone_lat_1` | latitude of populations (recorded at fixed points '**A**' and '**E**' for "JWDC" and "PS", respectively, using an iPhone 8 | first of two latitude coordinates recorded for fixed points '**A**' and '**E**'; corresponding longitude coordinates = `iphone_long_1`  
+`iphone_lat_2` | latitude of populations (recorded at fixed points '**A**' and '**E**' for "JWDC" and "PS", respectively, using an iPhone 8 | second of two latitude coordinates recorded for fixed points '**A**' and '**E**'; corresponding longitude coordinates = `iphone_long_2`
+`iphone_long_1` | longitude of populations (recorded at fixed points '**A**' and '**E**' for "JWDC" and "PS", respectively, using an iPhone 8 | first of two longitude coordinates recorded for fixed points '**A**' and '**E**'; corresponding latitude coordinates = `iphone_lat_1`
+`iphone_long_2` | longitude of populations (recorded at fixed points '**A**' and '**E**' for "JWDC" and "PS", respectively, using an iPhone 8 | second of two longitude coordinates recorded for fixed points '**A**' and '**E**'; corresponding latitude coordinates = `iphone_lat_2`
+`num_buds_collected` | number of flower buds collected for DNA analysis per `plant_id` | indicates the number of flower buds collected for DNA analysis; ranges from 0–8 per plant
+`num_leaves_collected` | number of leaves collected for DNA analysis per `plant_id` | indicates the number of leaves collected for DNA analysis; ranges from 1–7 per plant (depending on leaf size/quality)
+`num_pollen_tubes` | number of pollen samples (in Eppendorf tubes) collected per `plant_id` | indicates the number of pollen samples (in Eppendorf tubes) collected for pollen viability analysis; ranges from 0–3 per plant
+`plant_damaged` | plant damaged? (**Y** or **N**) | '**Y**' = plant damage detected; '**N**' = no sign of plant damage
+`plant_id` | plant identification number | unique numerical identifier used to tag plants; numbers range from 1–103 for population "JWDC" and 201–358 for population "PS" 
+`point_type` | type of `spatial_pt` | contains `spatial_pt` types/categories; values include '**fixed point**' (i.e., '**A**', '**B**', '**C**', and '**D**' for "JWDC"; '**E**' for "PS"), '**aggregate**' (i.e., aggregate marker; one of the 10-inch nails used to fine-map plant clusters in "JWDC"), '**full aggregate**' (same as '**aggregate**'), '**partial aggregate**' (i.e., refers to multiple--but not all--plants contained within a given aggregate), and '**plant**' (i.e., single `plant_id`)
+`pop` | plant population | "JWDC" = Jennings Woods (Daryl Carver's land); "PS" = Pearson Metropark (Parking Lot 2); see "Methods" section of this METADATA.md file for more information
+`reference_id` | identity of neighboring plant used for direct inter-plant distance measurements | `reference_id` = `plant_id` of reference plant; typically, inter-plant distance measurements were taken between sequential `plant_id`'s, such that that `plant_id` '**202**' served as the `reference_id` for `plant_id` '**201**', `plant_id` '**203**' served as the `reference_id` for `plant_id` '**202**', and so on; in many cases, focal `plant_id`'s and their respective `reference_id`'s were nearest neighbors  
+`sex` | plant sex | '**H**' = hermaphrodite; '**F**' = female; '**GM**' = gynomonoecious; '**NF**' = not flowering; '**U**' = unknown 
+`spatial_pt` | spatial point identity | contains identities of spatial points; '**A**', '**B**', '**C**', '**D**', and '**E**' = fixed points; '**JW[number]**' = aggregate (i.e., aggregate marker; one of the 10-inch nails used to fine-map plant clusters in "JWDC"); single numbers/numerical ranges (e.g., '**81**', '**70–74**') = `plant_id`'s; see Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx for context
+`spatial_pt_mapped_in_R` | name of `spatial_pt` mapped as soil sample location in R | contains the name of the `spatial_pt` (`plant_id`) mapped as a soil sample location in R; if more than one name (`plant_id`) was written on a soil sample collection bag, the first (i.e., lowest) number was mapped as the soil sample location
+`spatial_pt_sampled` | name(s) of `spatial_pt`(s) sampled for soil analyses | contains the name(s) of `spatial_pt`(s) written as they appear on soil sample collection bags; values can be single `plant_id`'s or multiple `plant_id`'s, some of which comprise partial or full aggregates
+`stem_length_cm` | stem length, measured from the ground to the first flower (cm) | distance (centimeters) from the ground to the first flower (i.e., bottom of inflorescence), calculated from `stem_length_in` using Excel's CONVERT function
+`stem_length_in` | stem length, measured from the ground to the first flower (inches) | distance (inches) measured from the ground to the first flower (i.e., bottom of inflorescence); recorded to the nearest 1/8 inch
+`supplemental_dist_to_reference_in` | distance measured (in inches) from a given `plant_id` to its respective `reference_id` | contains more accurate inter-plant distances measured during aggregate fine-mapping in "JWDC"; all distances were measured using a standard tape measure and were recorded to the nearest 1/8 inch
+`tot_plant_height_cm` | total plant height (centimeters) | contains data on total plant height (in centimeters); calculated from `tot_plant_height_in` using Excel's CONVERT function
+`tot_plant_height_in` | total plant height (inches) | contains data on total plant height (in inches); values obtained from both direct measurements (when the start of the inflorescence could not be distinguished from the rest of the stem) and indirect calculations (when the start of the inflorescence could be distinguished and data on stem length and inflorescence length were available); the latter was calculated as: `stem_length_in` + `inflorescence_length_in`; direct measurements were taken using a standard tape measure (recorded to the nearest 1/8 inch)
+`total_flowers_used` | total flowers used (i.e., removed) during tissue collection | running total of the number of flowers removed during tissue collection, calculated as: `flowers_for_pollen` + `flowers_preserved` + `num_buds_collected` + any manually-added values from the `comments_tissue_collection` column; ranges from 0–16 per plant
+`total_fruit_flower_remnants` | total number of fruit and flower remnants on inflorescence, including fruits collected | calculated as: all remaining fruits (including those collected) + bare pedicels + flower remnants still attached to inflorescence; values reflect total flower number per `plant_id` (minus `total_flowers_used`) 
+`total_fruits_collected` | total fruits collected | values reported directly from field notes, but should equal `fruits_collected_t` + `fruits_collected_m` + `fruits_collected_b`; total number of fruits collected per plant for germination studies, greenhouse experiments, and offspring genotyping
+`x_feet` | x value (feet) of a given `plant_id` in "PS" (from fixed point '**E**') | contains x values (in feet) of plants in "PS" relative to fixed point '**E**'; direct measurements taken for `plant_id`'s 257–358 using an open reel measuring tape w/ an engineer's scale (recorded to the nearest 0.01 ft); values for `plant_id`'s 201–256 were calculated from `x_inches` using Excel's CONVERT function
+`x_from_spatial_pt_to_reference_m` | x value (meters) of a given `reference_id` (fixed point), relative to its respective `spatial_pt` (fixed point) | calculated as: `avg_dist_from_spatial_pt_m` * SIN(`azimuth_from_spatial_pt_rads`); yields x value (east/west distance in meters) of a given `reference_pt` (fixed point) relative to its respective `spatial_pt` (fixed point); used for "JWDC" coordinate calculations
+`x_inches` | x value (in inches) of a given `plant_id` in "PS" (from fixed point '**E**') | contains x values (in inches) of `plant_id`'s 201–256 in "PS" relative to fixed point '**E**'; measurements taken using a standard open reel measuring tape (recorded to the nearest 1/8 inch)
+`x_meters` | x value (in meters) of a given `plant_id` in "PS" (from fixed point '**E**') | x value used in final coordinates; relative east/west distance (in meters) from fixed point '**E**'; calculated from `x_inches` and `x_feet` using Excel's CONVERT function
+`x_meters_newest_version` | x values (in meters) of fixed points and aggregate markers standardized to fixed point '**A**' in "JWDC" | contains revised x values (in meters) of fixed points and aggregates (i.e., aggregate markers) standardized to fixed point '**A**' in "JWDC"; revised values are theoretically more accurate, as they were calculated using the actual Mils-to-radians conversion formula (rather than using an online conversion calculator)
+`x1_meters` | primary x value (m) for plants in "JWDC" (standardized to fixed point '**A**') and "PS" (standardized to fixed point '**E**') | contains primary x coordinates (in meters) calculated for "JWDC" and "PS"; values obtained from `x1_meters_standardized_to_fpa` for "JWDC" (see Fall_2018_JWDC_Coordinate_Calculations.xlsx) and `x_meters` for "PS" (see Fall_2018_PS_Coordinate_Calculations.xlsx)
+`x1_meters_fp1_specific` | x value (in meters) of a given `plant_id`, relative to its respective "fixed point 1" | calculated as: `avg_dist_from_fp1_m` * SIN(`avg_azimuth_from_fp1_rads`) + `intra_aggregate_x_adj_m`; gives x value (in meters) derived from fixed point 1 distance and angle measurements; note: yields x values relative to a given `plant_id`'s "fixed point 1" (i.e., `fp1`), such that measurements taken from fixed points '**B**', '**C**', and '**D**' must be standardized to fixed point '**A**' before finalizing coordinates   
+`x1_meters_standardized_to_fpa` | x value (in meters) of a given `plant_id`, derived from `fp1` measurements and standardized to fixed point '**A**' | x value used in final coordinates; relative east/west distance (in meters) from fixed point '**A**'; calculated as: `x1_meters_fp1_specific` + appropriate conversion factor (i.e., `xval_converson_B_to_A_meters`, `xval_conversion_C_to_A_meters`, or `xval_conversion_D_to_A_meters`); see "Raw Data & Conversion Math" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx for context
+`x2_meters` | secondary x value (m) for plants in "JWDC" (measured from fixed point 2 and standardized to fixed point '**A**') | contains secondary x coordinates (in meters) for "JWDC" only; values obtained from `x2_meters_standardized_to_fpa` (see Fall_2018_JWDC_Coordinate_Calculations.xlsx)
+`x2_meters_fp2_specific` | x value (in meters) of a given `plant_id`, relative to its respective "fixed point 2" | calculated as: `avg_dist_from_fp2_m` * SIN(`avg_azimuth_from_fp2_rads`) + `intra_aggregate_x_adj_m`; gives x value (in meters) derived from fixed point 2 distance and angle measurements; note: yields x values relative to a given `plant_id`'s "fixed point 2" (i.e., `fp2`), such that measurements taken from fixed points '**B**', '**C**', and '**D**' must be standardized to fixed point '**A**' before finalizing coordinates  
+`x2_meters_standardized_to_fpa` | x value (in meters) of a given `plant_id`, derived from `fp2` measurements and standardized to fixed point '**A**' | x value used in secondary coordinates; relative east/west distance (in meters) from fixed point '**A**'; calculated as: `x2_meters_fp2_specific` + appropriate conversion factor (i.e., `xval_converson_B_to_A_meters`, `xval_conversion_C_to_A_meters`, or `xval_conversion_D_to_A_meters`); see "Raw Data & Conversion Math" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx for context
+`xval_conversion_B_to_A_meters` | conversion factor used to standardize x coordinates derived from fixed point '**B**' measurements to fixed point '**A**' | conversion factor = -14.29574654 meters; see Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx
+`xval_conversion_C_to_A_meters` | conversion factor used to standardize x coordinates derived from fixed point '**C**' measurements to fixed point '**A**' | conversion factor =-29.03009716 m; calculated by summing `x_from_spatial_pt_to_reference_m` values for '**C to B**' and '**B to A**' 
+`xval_conversion_D_to_A_meters` | conversion factor used to standardize x coordinates derived from fixed point '**D**' measurements to fixed point '**A**' | conversion factor = -44.01542062 m; calculated by summing `x_from_spatial_pt_to_reference_m` values for '**D to C**', '**C to B**', and '**B to A**' 
+`xval_in_R_meters` | x value (in meters) of `spatial_pt` currently mapped as soil sample location in R | contains the x value (in meters) of the `spatial_pt` (`plant_id`) currently mapped as a soil sample location in R; x values were obtained from `x1_meters`
+`xy1_calc_minus_xy2_calc_m` | inter-plant distances calculated from primary coordinates minus inter-plant distances calculated from secondary coordinates | estimates precision of inter-plant distance calculations from fixed points 1 & 2 (when both available); calculated difference (in meters) with sign
+`xy1_calc_reference_distance_m` | distance calculated (m) from a given `plant_id` to its `reference_id` using `x1_meters` and `y1_meters` | calculated as: SQRT((`x1_meters` of reference plant - `x1_meters` of focal plant)^2 + (`y1_meters` of reference plant - `y1_meters` of focal plant)^2); uses the basic  distance formula; calculated from primary coordinates 
+`xy1_error_m` | error (in meters) of inter-plant distances calculated from primary coordinates | calculated as: `xy1_calc_reference_distance_m` - `dist_to_reference_m`; calculated error (meters) with sign
+`xy1_percent_error` | percent error (absolute value) of inter-plant distances calculated from primary coordinates | calculated as: ABS((`abs_val_xy1_error_m` - `dist_to_reference_m`) / `dist_to_reference_m`); percent error without sign
+`xy2_calc_reference_distance_m` | distance calculated (m) from a given `plant_id` to its `reference_id` using `x2_meters` and `y2_meters` | calculated as: SQRT((`x2_meters` of reference plant - `x2_meters` of focal plant)^2 + (`y2_meters` of reference plant - `y2_meters` of focal plant)^2); uses the basic  distance formula; calculated from secondary coordinates 
+`xy2_error_m` | error (in meters) of inter-plant distances calculated from secondary coordinates | calculated as: `xy2_calc_reference_distance_m` - `dist_to_reference_m`; calculated error (meters) with sign
+`xy2_percent_error` | percent error (absolute value) of inter-plant distances calculated from secondary coordinates | calculated as: ABS((`abs_val_xy2_error_m` - `dist_to_reference_m`) / `dist_to_reference_m`); percent error without sign
+`y_feet` | y value (feet) of a given `plant_id` in "PS" (from fixed point '**E**') | contains y values (in feet) of plants in "PS" relative to fixed point '**E**'; calculated from `y_inches` using Excel's CONVERT function
+`y_from_spatial_pt_to_reference_m` | y value (meters) of a given `reference_id` (fixed point), relative to its respective `spatial_pt` (fixed point) | calculated as: `avg_dist_from_spatial_pt_m` * COS(`azimuth_from_spatial_pt_rads`); yields y value (north/south distance in meters) of a given `reference_pt` (fixed point) relative to its respective `spatial_pt` (fixed point); used for "JWDC" coordinate calculations
+`y_inches` | y value (inches) of a given `plant_id` in "PS" (from fixed point '**E**') | contains y values (in inches) of plants in "PS" relative to fixed point '**E**'; measurements taken using a standard tape measure (recorded to the nearest 1/8 inch)
+`y_meters` | y value (in meters) of a given `plant_id` in "PS" (from fixed point '**E**') | x value used in final coordinates; relative north/south distance (in meters) from fixed point '**E**'; calculated from `y_inches` using Excel's CONVERT function
+`y_meters_newest_version` | y values (in meters) of fixed points and aggregate markers standardized to fixed point '**A**' in "JWDC" | contains revised y values (in meters) of fixed points and aggregates (i.e., aggregate markers) standardized to fixed point '**A**' in "JWDC"; revised values are theoretically more accurate, as they were calculated using the actual Mils-to-radians conversion formula (rather than using an online conversion calculator)
+`y1_meters` | primary y value (m) for plants in "JWDC" (standardized to fixed point '**A**') and "PS" (standardized to fixed point '**E**') | contains primary y coordinates (in meters) calculated for "JWDC" and "PS"; values obtained from `y1_meters_standardized_to_fpa` for "JWDC" (see Fall_2018_JWDC_Coordinate_Calculations.xlsx) and `y_meters` for "PS" (see Fall_2018_PS_Coordinate_Calculations.xlsx)
+`y1_meters_fp1_specific` | y value (in meters) of a given `plant_id`, relative to its respective "fixed point 1" | calculated as: `avg_dist_from_fp1_m` * COS(`avg_azimuth_from_fp1_rads`) + `intra_aggregate_y_adj_m`; gives y value (in meters) derived from fixed point 1 distance and angle measurements; note: yields y values relative to a given `plant_id`'s "fixed point 1" (i.e., `fp1`), such that measurements taken from fixed points '**B**', '**C**', and '**D**' must be standardized to fixed point '**A**' before finalizing coordinates  
+`y1_meters_standardized_to_fpa` | y value (in meters) of a given `plant_id`, derived from `fp1` measurements and standardized to fixed point '**A**' | y value used in final coordinates; relative north/south distance (in meters) from fixed point '**A**'; calculated as: `y1_meters_fp1_specific` + appropriate conversion factor (i.e., `yval_converson_B_to_A_meters`, `yval_conversion_C_to_A_meters`, or `yval_conversion_D_to_A_meters`); see "Raw Data & Conversion Math" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx for context
+`y2_meters` | secondary y value (m) for plants in "JWDC" (measured from fixed point 2 and standardized to fixed point '**A**') | contains secondary y coordinates (in meters) for "JWDC" only; values obtained from `y2_meters_standardized_to_fpa` (see Fall_2018_JWDC_Coordinate_Calculations.xlsx)
+`y2_meters_fp2_specific` | y value (in meters) of a given `plant_id`, relative to its respective "fixed point 2" | calculated as: `avg_dist_from_fp2_m` * COS(`avg_azimuth_from_fp2_rads`) + `intra_aggregate_y_adj_m`; gives y value (in meters) derived from fixed point 2 distance and angle measurements; note: yields y values relative to a given `plant_id`'s "fixed point 2" (i.e., `fp2`), such that measurements taken from fixed points '**B**', '**C**', and '**D**' must be standardized to fixed point '**A**' before finalizing coordinates  
+`y2_meters_standardized_to_fpa` | y value (in meters) of a given `plant_id`, derived from `fp2` measurements and standardized to fixed point '**A**' | y value used in secondary coordinates; relative north/south distance (in meters) from fixed point '**A**'; calculated as: `y2_meters_fp2_specific` + appropriate conversion factor (i.e., `yval_converson_B_to_A_meters`, `yval_conversion_C_to_A_meters`, or `yval_conversion_D_to_A_meters`); see "Raw Data & Conversion Math" sheet of Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx for context
+`yval_conversion_B_to_A_meters` | conversion factor used to standardize y coordinates derived from fixed point '**B**' measurements to fixed point '**A**' | conversion factor = -16.73816867 m; see Fall_2018_PS_JWDC_Miscellaneous_Info.xlsx
+`yval_conversion_C_to_A_meters` | conversion factor used to standardize y coordinates derived from fixed point '**C**' measurements to fixed point '**A**' | conversion factor =  -27.66590783 m; calculated by summing `y_from_spatial_pt_to_reference_m` values for '**C to B**' and '**B to A**' 
+`yval_conversion_D_to_A_meters` | conversion factor used to standardize y coordinates derived from fixed point '**D**' measurements to fixed point '**A**' | conversion factor = -24.2234867 m; calculated by summing `y_from_spatial_pt_to_reference_m` values for '**D to C**', '**C to B**', and '**B to A**' 
+`yval_in_R_meters` | y value (in meters) of `spatial_pt` currently mapped as soil sample location in R | contains the y value (in meters) of the `spatial_pt` (`plant_id`) currently mapped as a soil sample location in R; x values were obtained from `y1_meters`
