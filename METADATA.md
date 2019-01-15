@@ -1,8 +1,8 @@
 # Metadata
 ## Contact Information
-Thomas "Wes" Mitchell, Ph.D. student in Ecology and Evolutionary Biology    
-Department of Biological Sciences, Kent State University  
-PO Box 5190, Kent, Ohio, 44242-0001   
+Thomas "Wes" Mitchell, Ph.D. student in Ecology & Evolutionary Biology    
+Dept. of Biological Sciences, Kent State University  
+PO Box 5190, Kent, OH, 44242-0001   
 email: tmitch35@kent.edu    
 phone: +1(336)279-0211 
 ## Methods
@@ -49,7 +49,9 @@ phone: +1(336)279-0211
     * **previous versions:** NA
     * **file status:** complete
     
-### Column Headers Defined & Described 
+### Column Header Definitions & Descriptions
+The following table provides brief definitions and descriptions for all column headers (i.e., variables) used in the preceding Master Excel Files. `Column headers` are highlighted as inline code and alphabetized for quick referencing. '**Values**' are bold-faced and flanked by single quotation marks. 
+
 Column Header (Variable) | Definition | Description 
 :----------------------- | :--------- | :----------
 `abs_val_xy1_calc_minus_xy2_calc_m` | absolute value of (inter-plant distances calculated from primary coordinates minus inter-plant distances calculated from secondary coordinates) | estimates precision of inter-plant distance calculations from fixed points 1 & 2 (when both available); calculated difference (in meters) without sign
