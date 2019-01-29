@@ -1,13 +1,13 @@
 # Metadata
-## Contact Information
+## CONTACT INFORMATION
 Thomas "Wes" Mitchell, Ph.D. Student in Ecology & Evolutionary Biology    
 Department of Biological Sciences, Kent State University  
 PO Box 5190, Kent, Ohio, 44242-0001   
 email: tmitch35@kent.edu    
 phone: +1(336)279-0211 
-## Methods
-## Project Data files
-### Master Excel Files
+## METHODS
+## PROJECT DATA FILES
+### MASTER EXCEL FILES
 1. [Fall_2018_PS_JWDC_Tissue_Collection.xlsx](https://github.com/tmitch35/FSGS/blob/master/Fall_2018_PS_JWDC_Tissue_Collection.xlsx)
     * **contents:** inventory of collected tissue broken down by type (e.g., flowers, buds, leaves, pollen) and plant_id; comments section contains data on plant damage (at time of tissue collection), which are highlighted in yellow   
     * **last updated:** 01/08/2019
@@ -49,7 +49,7 @@ phone: +1(336)279-0211
     * **previous versions:** NA
     * **file status:** complete
     
-### Column Headers, Definitions, and Descriptions
+### COLUMN HEADERS, DEFINITIONS, AND DESCRIPTIONS
 The following table provides brief definitions and descriptions for all column headers (i.e., variables) used in the preceding Master Excel Files. `Column headers` are highlighted as inline code and alphabetized for quick referencing. '**Values**' are bold-faced and flanked by single quotation marks. 
 
 Column Header (Variable) | Definition | Description 
