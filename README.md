@@ -39,3 +39,30 @@ See [METADATA.md](https://github.com/tmitch35/FSGS/blob/master/METADATA.md) file
 ## ACKNOWLEDGEMENTS
 Thank you to Dr. Andrea Case and the 2018 Herrick Aquatic Ecology Award for project funding. Thank you to Tony Miller, Isaac Wayne, and Dr. Andrea Case for all of their help!
 ## LITERATURE CITED
+Caruso, C. M., & Case, A. L. (2013). Testing models of sex ratio evolution in a gynodioecious plant: Female frequency covaries with the cost of male fertility restoration. *Evolution, 67*(2), 561–566.  
+
+Caruso, C. M., Case, A. L., & Bailey, M. F. (2012). The evolutionary ecology of cytonuclear interactions in angiosperms. *Trends in Plant Science, 17*(11), 638–643.  
+
+De Cauwer, I., Dufay, M., Cuguen, J., & Arnaud, J. F. (2010). Effects of fine-scale genetic structure on male mating success in gynodioecious *Beta vulgaris* ssp. *maritima*. *Molecular Ecology, 19*(8), 1540–1558.  
+
+De Cauwer, I., Dufay, M., Hornoy, B., Courseaux, A., & Arnaud, J. F. (2012). Gynodioecy in structured populations: Understanding fine-scale sex ratio variation in *Beta vulgaris* ssp. *maritima*. *Molecular Ecology, 21*(4), 834–850.  
+
+Delph, L. F., Touzet, P., & Bailey, M. F. (2007). Merging theory and mechanism in studies of gynodioecy.
+*Trends in Ecology and Evolution, 22*(1), 17–24.  
+
+Laporte, V., Viard, F., Bena, G., Valero, M., & Cuguen, J. (2001). The spatial structure of sexual and cytonuclear polymorphism in the gynodioecious *Beta vulgaris* ssp. *maritima*: I / at a local scale. *Genetics, 157*(4), 1699–1710.  
+
+Lara-Romero, C., García-Fernández, A., Robledo-Arnuncio, J. J., Roumet, M., Morente-López, J., & Iriondo, J.
+M. (2016). Individual spatial aggregation correlates with between-population variation in fine-scale genetic structure of *Silene ciliata* (Caryophyllaceae ). *Heredity, 116*(5), 417–423.  
+
+McCauley, D. E., & Taylor, D. (1997). Local Population Structure and Sex Ratio: Evolution in Gynodioecious Plants. *The American Naturalist, 150*(3), 406–419.  
+
+McCauley, D. E., & Bailey, M. F. (2009). Recent advances in the study of gynodioecy: the interface of theory and empiricism. *Annals of Botany, 104*(4), 611–620.  
+
+Olson, M. S., Graf, A. V., & Niles, K. R. (2006). Fine scale spatial structuring of sex and mitochondria in *Silene vulgaris*. *Journal of Evolutionary Biology, 19*(4), 1190–1201.  
+
+Proell, J. (2009). Population sex ratio and size affect pollination, reproductive success, and seed germination in gynodioecious *Lobelia siphilitica*: evidence using experimental populations and microsatellite genotypes. *ProQuest Dissertations and Theses*, M.S. (August).  
+
+Sanderson, B. J., Augat, M. E., Taylor, D. R., & Brodie III, E. D. (2016). Scale dependence of sex ratio in wild plant populations: implications for social selection. *Ecology and Evolution, 6*(5), 1411–1419.  
+
+Vekemans, X., & Hardy, O. J. (2004). New insights from fine-scale spatial genetic structure analyses in plant populations. *Molecular Ecology, 13*(4), 921–935.  
