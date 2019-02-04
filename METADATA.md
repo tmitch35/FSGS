@@ -1,6 +1,6 @@
 # Metadata
 ## CONTACT INFORMATION
-Thomas "Wes" Mitchell,   
+**Thomas "Wes" Mitchell**,   
 Ph.D. Student in Ecology & Evolutionary Biology    
 Department of Biological Sciences, Kent State University  
 PO Box 5190, Kent, Ohio, 44242-0001   
