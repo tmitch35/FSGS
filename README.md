@@ -18,18 +18,18 @@ Therefore, it is my goal to compare the effect of fine-scale spatial genetic str
 [Q3]: Does FSGS influence plant fitness and, if so, how?  
 **[H3]: Fine-scale spatial genetic structure is predicted to affect plant fitness by 1) decreasing female fitness under pollen limitation (caused by variation in local sex ratio), 2) increasing male fitness in restored hermaphrodites, and 3) increasing inbreeding depression in demes consisting of related individuals.**
 ## PROJECT AUTHORS
-* Thomas "Wes" Mitchell
+* **Thomas "Wes" Mitchell**
   + data collection and organization
   + all written content (e.g., project abstract, METADATA.md, etc.)
   + statistical analyses
   + programming in R
   + repository edits
-* Dr. Christine Bahlai
+* **Dr. Christine Bahlai**
   + initial GitHub repository setup
   + statistical analyses
   + programming in R
   + repository edits
-* Dr. Andrea Case 
+* **Dr. Andrea Case** 
   + project advisement
   + writing edits 
 ## LICENSE
