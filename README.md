@@ -10,13 +10,13 @@ Therefore, it is my goal to compare the effect of fine-scale spatial genetic str
 
 ## EXPERIMENTAL QUESTIONS AND ASSOCIATED HYPOTHESES  
 [Q1]: Are natural populations of *Lobelia siphilitica*, a gynodioecious perennial herb, spatially structured?  
-**[H1]: Populations of *Lobelia siphilitica* exhibit strong FSGS for a variety of reasons, resulting in the aggregation of similar sexual phenotypes; however, the strength of FSGS varies between genomes, such that mitochondrial and chloroplastic haplotypes are significantly more structured than their respective nuclear counterparts.**  
+**[H1]: Populations of *Lobelia siphilitica* are predicted to exhibit strong FSGS for a variety of reasons, resulting in the aggregation of similar sexual phenotypes; however, the strength of FSGS likely varies between genomes, such that mitochondrial and chloroplastic haplotypes are significantly more structured than their respective nuclear counterparts.**  
 
 [Q2]: If populations are spatially structured, what factors underlie FSGS and/or account for among-population differences in the strength of fine-scale spatial genetic structure?  
-**[H2]: Factors that generate FSGS include mating system (i.e., unequal reproductive success), founder effects, selection, low effective population density, low effective seed dispersal distance, clonality, herbaceous growth form, genetic drift, animal-dispersed pollen, microhabitat heterogeneity, the spatial aggregation of adult plants, self-compatibility, and isolation by distance; however, out of these, low effective seed dispersal distance and low effective population density have the greatest effect on FSGS. Among-population differences in FSGS are likely caused by differing 1) population densities, 2) degrees of adult-plant aggregation, and 3) habitat conditions. I also predict that the extent of FSGS will vary between high- and low-female sex ratios, such that populations with high-female sex ratios exhibit stronger FSGS than those with low-female sex ratios, particularly with respect to chloroplastic and mitochondrial haplotypes.**  
+**[H2]: Factors that generate FSGS likely include mating system (i.e., unequal reproductive success), founder effects, selection, low effective population density, low effective seed dispersal distance, clonality, herbaceous growth form, genetic drift, animal-dispersed pollen, microhabitat heterogeneity, the spatial aggregation of adult plants, self-compatibility, and isolation by distance; however, out of these, low effective seed dispersal distance and low effective population density are predicted to have the greatest effect on FSGS. Among-population differences in FSGS are thought to be caused by differing 1) population densities, 2) degrees of adult-plant aggregation, and 3) habitat conditions. It is also predicted that the extent of FSGS will vary between high- and low-female sex ratios, such that populations with high-female sex ratios exhibit stronger FSGS than those with low-female sex ratios, particularly with respect to chloroplastic and mitochondrial haplotypes.**  
 
 [Q3]: Does FSGS influence plant fitness and, if so, how?  
-**[H3]: Fine-scale spatial genetic structure influences plant fitness by 1) decreasing female fitness under pollen limitation (caused by variation in local sex ratio), 2) increasing male fitness in restored hermaphrodites, and 3) increasing inbreeding depression in demes consisting of related individuals.**
+**[H3]: Fine-scale spatial genetic structure is predicted to affect plant fitness by 1) decreasing female fitness under pollen limitation (caused by variation in local sex ratio), 2) increasing male fitness in restored hermaphrodites, and 3) increasing inbreeding depression in demes consisting of related individuals.**
 ## PROJECT AUTHORS
 * Thomas "Wes" Mitchell
   + data collection and organization
@@ -33,7 +33,7 @@ Therefore, it is my goal to compare the effect of fine-scale spatial genetic str
   + project advisement
   + writing edits 
 ## LICENSE
-This project is intellectual property of Kent State University and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>. <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
+This project is the intellectual property of Kent State University and is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>. <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />
 ## METADATA 
 See [METADATA.md](https://github.com/tmitch35/FSGS/blob/master/METADATA.md) file for contact information, project data files, column headers (variables), and methods.  
 ## ACKNOWLEDGEMENTS
