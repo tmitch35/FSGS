@@ -177,3 +177,103 @@ updated_ps_error <- subset(updated_error, pop=="PS")
 summary(updated_ps_error)
 #mean "xy1_error_m" = -0.0005633; min: -0.0298832; max: 0.0284582
 #mean "abs_val_xy1_error_m" = 0.006701
+
+
+
+#SPATIAL AUTOCORRELATION STUFF
+library(ape)
+library(spdep)
+library(ncf)
+library(lctools)
+
+#read CSV file from earlier
+flowers_height_damage <- read.csv("~/Desktop/Research/FSGS_fall_2018/FLOWERS_HEIGHT_DAMAGE_01_06_19.csv")
+
+#subset data (plant id, population, sex, x/y coordinates, total flowers per plant, and plant height measurements)
+tot_flowers_height <- flowers_height_damage[c(1,2,3,4,5,8,9,10,11)]
+str(tot_flowers_height)
+summary(tot_flowers_height)
+
+#remove all NA's (real analysis needs to remove NA's separately) 
+tot_fh_nona <- na.omit(tot_flowers_height)
+tot_fh_nona
+summary(tot_fh_nona)
+
+#subset by population (avoids incorrect conflation of relative x/y coordinates)
+jwdc_tot_fh_nona <- subset(tot_fh_nona, pop=="JWDC")
+summary(jwdc_tot_fh_nona)
+
+ps_tot_fh_nona <- subset(tot_fh_nona, pop=="PS")
+summary(ps_tot_fh_nona)
+
+#generate distance matrix for PS, take inverse of matrix values, and replace diagonal entries with zero
+ps_tot_fh_nona.dists <- as.matrix(dist(cbind(ps_tot_fh_nona$x_meters, ps_tot_fh_nona$y_meters)))
+ps_tot_fh_nona.dists.inv <- 1/ps_tot_fh_nona.dists
+diag(ps_tot_fh_nona.dists.inv) <- 0
+
+#look at first five rows & columns (of PS matrix) to verify code worked
+ps_tot_fh_nona.dists.inv[1:5, 1:5]
+
+#calculate Moran's I for plant height at PS (uses 'APE' package)
+Moran.I(ps_tot_fh_nona$tot_plant_height_cm, ps_tot_fh_nona.dists.inv)
+#p-value = 1.202393e-05 (SIGNIFICANT)
+#should this be a two-sided test?
+
+#calculate Moran's I for total flowers per plant at PS (uses 'APE' package)
+Moran.I(ps_tot_fh_nona$total_flowers_per_plant, ps_tot_fh_nona.dists.inv)
+#p-value = 6.006263e-09 (SIGNIFICANT)
+#should this be a two-sided test?
+
+#generate distance matrix for JWDC, take inverse of matrix values, and replace diagonal entries with zero
+jwdc_tot_fh_nona.dists <- as.matrix(dist(cbind(jwdc_tot_fh_nona$x_meters, jwdc_tot_fh_nona$y_meters)))
+jwdc_tot_fh_nona.dists.inv <- 1/jwdc_tot_fh_nona.dists
+diag(jwdc_tot_fh_nona.dists.inv) <- 0
+
+#look at first five rows & columns (of JWDC matrix) to verify code worked
+jwdc_tot_fh_nona.dists.inv[1:5, 1:5]
+
+#calculate Moran's I for plant height at JWDC (uses 'APE' package)
+Moran.I(jwdc_tot_fh_nona$tot_plant_height_cm, jwdc_tot_fh_nona.dists.inv)
+#p-value = 5.507374e-05 (SIGNIFICANT)
+#should this be a two-sided test?
+
+#calculate Moran's I for total flowers per plant at JWDC (uses 'APE' package)
+Moran.I(jwdc_tot_fh_nona$total_flowers_per_plant, jwdc_tot_fh_nona.dists.inv)
+#p-value = 0.006126597 (SIGNIFICANT)
+#should this be a two-sided test?
+
+
+
+
+#EXAMPLE: TOTAL FLOWERS PER PLANT vs. INFLORESCENCE LENGTH 
+#plotting relationship
+plot(total_flowers_per_plant~inflorescence_length_cm,data=tot_fh_nona)
+#original (untransformed) model
+flowermod <- lm(total_flowers_per_plant~inflorescence_length_cm,data=tot_fh_nona)
+
+#log-transformed model (trying to mitigate assumption violations below)
+tot_fh_nona$lntotal_flowers_per_plant <- log(tot_fh_nona$total_flowers_per_plant)
+lnflower.v.inflorescence <- lm(lntotal_flowers_per_plant~inflorescence_length_cm,data=tot_fh_nona)
+
+#sqrt-transformed model (trying to mitigate assumption violations below)
+tot_fh_nona$sqrttotal_flowers_per_plant <- sqrt(tot_fh_nona$total_flowers_per_plant)
+sqrtflower.v.inflorescence <- lm(sqrttotal_flowers_per_plant~inflorescence_length_cm,data=tot_fh_nona)
+
+#checking for assumptions: original model (i.e., no transformations)
+shapiro.test(resid(flowermod))
+par(mfrow=c(1,2)) 
+plot(flowermod,which=c(1,2))
+#assumptions violated (p-value = 2.499e-12)
+
+#checking for assumptions: log transformation model
+shapiro.test(resid(lnflower.v.inflorescence))
+par(mfrow=c(1,2)) 
+plot(flowermod,which=c(1,2))
+#assumptions still violated (p-value = 0.01302); better than original & sqrt transformation
+#maybe non-parametric tests would be more appropriate...
+
+#checking for assumptions: sqrt transformation model
+shapiro.test(resid(sqrtflower.v.inflorescence))
+par(mfrow=c(1,2)) 
+plot(flowermod,which=c(1,2))
+#assumptions still violated (p-value = 2.725e-05); better than original but worse than log transformation
