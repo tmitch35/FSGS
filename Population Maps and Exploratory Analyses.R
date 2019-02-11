@@ -185,6 +185,7 @@ library(ape)
 library(spdep)
 library(ncf)
 library(lctools)
+library(sp)
 
 #read CSV file from earlier
 flowers_height_damage <- read.csv("~/Desktop/Research/FSGS_fall_2018/FLOWERS_HEIGHT_DAMAGE_01_06_19.csv")
@@ -199,12 +200,53 @@ tot_fh_nona <- na.omit(tot_flowers_height)
 tot_fh_nona
 summary(tot_fh_nona)
 
-#subset by population (avoids incorrect conflation of relative x/y coordinates)
+#subset by population JWDC (avoids incorrect conflation of relative x/y coordinates)
 jwdc_tot_fh_nona <- subset(tot_fh_nona, pop=="JWDC")
 summary(jwdc_tot_fh_nona)
 
+#specify x_meters & y_meters as a SpatialPointsDataFrame for 'sp' package
+coordinates(jwdc_tot_fh_nona) = c(4,5)
+class(jwdc_tot_fh_nona)
+plot(jwdc_tot_fh_nona, pch = 16)
+
+#find nearest 22 neighbors for JWDC ("k" must be LESS THAN or EQUAL TO one-third of the number of data points, which is '66' for JWDC)
+knear22JWDC <- knearneigh(jwdc_tot_fh_nona, k=22, RANN = F)
+names(knear22JWDC)
+head(knear22JWDC)
+
+#plot correlations in "total flowers per plant" b/t groups of nearest neighbors
+#plotted correlations probably invalid (i.e., do not meet test assumptions); just an exercise!!!
+correlationsJWDC <- vector(mode = "numeric", length = 22)
+for (i in 1:22) {
+  correlationsJWDC[i] <- cor(jwdc_tot_fh_nona$total_flowers_per_plant, jwdc_tot_fh_nona$total_flowers_per_plant[knear22JWDC$nn[,i]])
+}
+correlationsJWDC
+plot(correlationsJWDC, main="Correlation b/t 'Total Flowers per Plant' and Number of Nearest Neighbors in JWDC", xlab="nth nearest neighbor", ylab="Correlation")
+lines(lowess(correlationsJWDC))
+
+#subset by population PS (avoids incorrect conflation of relative x/y coordinates)
 ps_tot_fh_nona <- subset(tot_fh_nona, pop=="PS")
 summary(ps_tot_fh_nona)
+
+#specify x_meters & y_meters as a SpatialPointsDataFrame for 'sp' package
+coordinates(ps_tot_fh_nona) = c(4,5)
+class(ps_tot_fh_nona)
+plot(ps_tot_fh_nona, pch = 16)
+
+#find nearest 47 neighbors for PS ("k" must be LESS THAN or EQUAL TO one-third of the number of data points, which is '143' for PS)
+knear47PS <- knearneigh(ps_tot_fh_nona, k=47, RANN = F)
+names(knear47PS)
+head(knear47PS)
+
+#plot correlations in "total flowers per plant" b/t groups of nearest neighbors
+#plotted correlations probably invalid (i.e., do not meet test assumptions); just an exercise!!!
+correlationsPS <- vector(mode = "numeric", length = 47)
+for (i in 1:47) {
+  correlationsPS[i] <- cor(ps_tot_fh_nona$total_flowers_per_plant, ps_tot_fh_nona$total_flowers_per_plant[knear47PS$nn[,i]])
+}
+correlationsPS
+plot(correlationsPS, main="Correlation b/t 'Total Flowers per Plant' and Number of Nearest Neighbors in PS", xlab="nth nearest neighbor", ylab="Correlation")
+lines(lowess(correlationsPS))
 
 #generate distance matrix for PS, take inverse of matrix values, and replace diagonal entries with zero
 ps_tot_fh_nona.dists <- as.matrix(dist(cbind(ps_tot_fh_nona$x_meters, ps_tot_fh_nona$y_meters)))
@@ -215,14 +257,27 @@ diag(ps_tot_fh_nona.dists.inv) <- 0
 ps_tot_fh_nona.dists.inv[1:5, 1:5]
 
 #calculate Moran's I for plant height at PS (uses 'APE' package)
-Moran.I(ps_tot_fh_nona$tot_plant_height_cm, ps_tot_fh_nona.dists.inv)
-#p-value = 1.202393e-05 (SIGNIFICANT)
+Moran.I(ps_tot_fh_nona$tot_plant_height_cm, ps_tot_fh_nona.dists.inv, alternative = "two.sided")
+#p-value (default) = 1.202393e-05 (SIGNIFICANT)
+#p-value (alternative = "two.sided") = 1.160906e-05 (SIGNIFICANT)
 #should this be a two-sided test?
+#what is the relationship b/t the two p-values?
+#employs inverse distance weighting (IDW)
+#see "intro_to_R.pdf" for alternative weighting methods (p. 59)
+
+#calculate local Moran's I for 0-1 meter distance class (pop = "PS")
+nb01 <- dnearneigh(ps_tot_fh_nona,0,1)
+moran.test(ps_tot_fh_nona$tot_plant_height_cm, nb2listw(nb01, style = "B"), alternative = "two.sided")
+#repeat w/ 1-2, 2-3, 3-4, 4-5, 5-6, 6-7, 7-8, 8-9, & 9-10 meter distance classes (or 0-2, 0-3, 0-4, etc.)
 
 #calculate Moran's I for total flowers per plant at PS (uses 'APE' package)
-Moran.I(ps_tot_fh_nona$total_flowers_per_plant, ps_tot_fh_nona.dists.inv)
+Moran.I(ps_tot_fh_nona$total_flowers_per_plant, ps_tot_fh_nona.dists.inv, alternative = "two.sided")
 #p-value = 6.006263e-09 (SIGNIFICANT)
+#p-value (alternative = "two.sided") = 4.485197e-09
 #should this be a two-sided test?
+#what is the relationship b/t the two p-values?
+#employs inverse distance weighting (IDW)
+#see "intro_to_R.pdf" for alternative weighting methods (p. 59)
 
 #generate distance matrix for JWDC, take inverse of matrix values, and replace diagonal entries with zero
 jwdc_tot_fh_nona.dists <- as.matrix(dist(cbind(jwdc_tot_fh_nona$x_meters, jwdc_tot_fh_nona$y_meters)))
@@ -233,17 +288,22 @@ diag(jwdc_tot_fh_nona.dists.inv) <- 0
 jwdc_tot_fh_nona.dists.inv[1:5, 1:5]
 
 #calculate Moran's I for plant height at JWDC (uses 'APE' package)
-Moran.I(jwdc_tot_fh_nona$tot_plant_height_cm, jwdc_tot_fh_nona.dists.inv)
+Moran.I(jwdc_tot_fh_nona$tot_plant_height_cm, jwdc_tot_fh_nona.dists.inv, alternative = "two.sided")
 #p-value = 5.507374e-05 (SIGNIFICANT)
+#p-value (alternative = "two.sided") = 2.482112e-05 (SIGNIFICANT)
 #should this be a two-sided test?
+#what is the relationship b/t the two p-values?
+#employs inverse distance weighting (IDW)
+#see "intro_to_R.pdf" for alternative weighting methods (p. 59)
 
 #calculate Moran's I for total flowers per plant at JWDC (uses 'APE' package)
-Moran.I(jwdc_tot_fh_nona$total_flowers_per_plant, jwdc_tot_fh_nona.dists.inv)
+Moran.I(jwdc_tot_fh_nona$total_flowers_per_plant, jwdc_tot_fh_nona.dists.inv, alternative = "two.sided")
 #p-value = 0.006126597 (SIGNIFICANT)
+#p-value (alternative = "two.sided") = 0.01098905 (SIGNIFICANT)
 #should this be a two-sided test?
-
-
-
+#what is the relationship b/t the two p-values?
+#employs inverse distance weighting (IDW)
+#see "intro_to_R.pdf" for alternative weighting methods (p. 59)
 
 #EXAMPLE: TOTAL FLOWERS PER PLANT vs. INFLORESCENCE LENGTH 
 #plotting relationship
