@@ -150,6 +150,28 @@ moran.test(tfpp_no_na_jwdc.xy$total_flowers_per_plant, tfpp_no_na_jwdc_spknear3I
 #the derivation of the test (Cliff and Ord, 1981, p. 18) assumes that the weights matrix is symmetric; 
 #for inherently non-symmetric matrices, such as k-nearest neighbour matrices, 'listw2U()' can be used to make the matrix symmetric
 
+#determine a distance range for Moran's I by computing a correlogram ==> pop = "JWDC" & variable = "total_flowers_per_plant"
+#see https://gdmdata.com/media/documents/handouts/2017ASA_FarmToTable_Spatial_correlation.pdf for tutorial/syntax
+tfpp.0.5.clg <- correlog(tfpp_no_na_jwdc.xy$x_meters, tfpp_no_na_jwdc.xy$y_meters, tfpp_no_na_jwdc.xy$total_flowers_per_plant, increment=0.5, resamp=500, quiet=TRUE)
+plot(tfpp.0.5.clg) #why does this correlogram look so messed up? consider limiting x axis to 10 meters
+
+tfpp.0.75.clg <- correlog(tfpp_no_na_jwdc.xy$x_meters, tfpp_no_na_jwdc.xy$y_meters, tfpp_no_na_jwdc.xy$total_flowers_per_plant, increment=0.75, resamp=500, quiet=TRUE)
+plot(tfpp.0.75.clg) #why does this correlogram look so messed up? consider limiting x axis to 10 meters
+
+tfpp.1.clg <- correlog(tfpp_no_na_jwdc.xy$x_meters, tfpp_no_na_jwdc.xy$y_meters, tfpp_no_na_jwdc.xy$total_flowers_per_plant, increment=1, resamp=500, quiet=TRUE)
+plot(tfpp.1.clg) #why does this correlogram look so messed up? consider limiting x axis to 10 meters
+
+#determine a distance range for Moran's I by computing a correlogram ==> pop = "PS" & variable = "total_flowers_per_plant"
+#see https://gdmdata.com/media/documents/handouts/2017ASA_FarmToTable_Spatial_correlation.pdf for tutorial/syntax
+ps.tfpp.0.5.clg <- correlog(tfpp_no_na_ps.xy$x_meters, tfpp_no_na_ps.xy$y_meters, tfpp_no_na_ps.xy$total_flowers_per_plant, increment=0.5, resamp=500, quiet=TRUE)
+plot(ps.tfpp.0.5.clg) #this correlogram looks right
+
+ps.tfpp.0.75.clg <- correlog(tfpp_no_na_ps.xy$x_meters, tfpp_no_na_ps.xy$y_meters, tfpp_no_na_ps.xy$total_flowers_per_plant, increment=0.75, resamp=500, quiet=TRUE)
+plot(ps.tfpp.0.75.clg) #this correlogram looks right
+
+ps.tfpp.1.clg <- correlog(tfpp_no_na_ps.xy$x_meters, tfpp_no_na_ps.xy$y_meters, tfpp_no_na_ps.xy$total_flowers_per_plant, increment=1, resamp=500, quiet=TRUE)
+plot(ps.tfpp.1.clg) #this correlogram looks right
+
 #EXAMPLE: Global Moran's I (calculated w/ 'ape' package) for 'total_flowers_per_plant' in "JWDC"
 #employs IDW matrix (but could try other methods)
 #may need to standardize by row for intuitive visualizations, subsequent LISA statistics, etc. 
