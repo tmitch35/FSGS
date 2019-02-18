@@ -153,13 +153,16 @@ moran.test(tfpp_no_na_jwdc.xy$total_flowers_per_plant, tfpp_no_na_jwdc_spknear3I
 #determine a distance range for Moran's I by computing a correlogram ==> pop = "JWDC" & variable = "total_flowers_per_plant"
 #see https://gdmdata.com/media/documents/handouts/2017ASA_FarmToTable_Spatial_correlation.pdf for tutorial/syntax
 tfpp.0.5.clg <- correlog(tfpp_no_na_jwdc.xy$x_meters, tfpp_no_na_jwdc.xy$y_meters, tfpp_no_na_jwdc.xy$total_flowers_per_plant, increment=0.5, resamp=500, quiet=TRUE)
-plot(tfpp.0.5.clg) #why does this correlogram look so messed up? consider limiting x axis to 10 meters
+plot(tfpp.0.5.clg) #why does this correlogram look so messed up? consider limiting x axis to 20 meters
+plot(tfpp.0.5.clg, xlim=c(0,20))
 
 tfpp.0.75.clg <- correlog(tfpp_no_na_jwdc.xy$x_meters, tfpp_no_na_jwdc.xy$y_meters, tfpp_no_na_jwdc.xy$total_flowers_per_plant, increment=0.75, resamp=500, quiet=TRUE)
-plot(tfpp.0.75.clg) #why does this correlogram look so messed up? consider limiting x axis to 10 meters
+plot(tfpp.0.75.clg) #why does this correlogram look so messed up? consider limiting x axis to 20 meters
+plot(tfpp.0.75.clg, xlim=c(0,20))
 
 tfpp.1.clg <- correlog(tfpp_no_na_jwdc.xy$x_meters, tfpp_no_na_jwdc.xy$y_meters, tfpp_no_na_jwdc.xy$total_flowers_per_plant, increment=1, resamp=500, quiet=TRUE)
-plot(tfpp.1.clg) #why does this correlogram look so messed up? consider limiting x axis to 10 meters
+plot(tfpp.1.clg) #why does this correlogram look so messed up? consider limiting x axis to 20 meters
+plot(tfpp.1.clg, xlim=c(0,20))
 
 #determine a distance range for Moran's I by computing a correlogram ==> pop = "PS" & variable = "total_flowers_per_plant"
 #see https://gdmdata.com/media/documents/handouts/2017ASA_FarmToTable_Spatial_correlation.pdf for tutorial/syntax
