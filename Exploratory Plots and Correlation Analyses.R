@@ -28,14 +28,14 @@ ps <- subset(practice_data, pop=="PS")
 summary(jwdc)
 summary(ps)
 
-#make plots to check for correlations among variables
+#make plots to check for correlations among (approximately) continuous variables
 pairs(practice_data[,7:11])
 pairs(jwdc[,7:11])
 pairs(ps[,7:11])
 
 #make plots to compare 1) total_flowers_per_plant, 2) stem_length_cm, 3) inflorescence_length_cm, 4) tot_plant_height_cm, and 5) plant_damaged by pop and sex
 #females v. hermaphrodites w/n "JWDC"
-plot(total_flowers_per_plant~sex,data=jwdc)
+plot(total_flowers_per_plant~sex,data=jwdc) 
 plot(stem_length_cm~sex,data=jwdc)
 plot(inflorescence_length_cm~sex,data=jwdc)
 plot(tot_plant_height_cm~sex,data=jwdc)
@@ -44,7 +44,7 @@ subsetFHjwdc <- subset(jwdc, sex=="H" | sex=="F")
 plot(plant_damaged~sex,data=subsetFHjwdc) #R is still plotting GM, NF, & U individuals (but w/o data now)...figure out how to remove completely!
 
 #females v. hermaphrodites w/n "PS"
-plot(total_flowers_per_plant~sex,data=ps)
+plot(total_flowers_per_plant~sex,data=ps) 
 plot(stem_length_cm~sex,data=ps)
 plot(inflorescence_length_cm~sex,data=ps)
 plot(tot_plant_height_cm~sex,data=ps)
@@ -113,8 +113,6 @@ diag(tfpp_no_na_ps.dists.inv) <- 0
 #could use 'subset <- complete.cases(mydata)'--easiest method, but removes a lot of unnecessary data
 
 #EXAMPLE: tfpp_no_na_jwdc_knear10 ==> create spatial weights matrix and convert to 'weights list' form
-#repeat example below for 'tfpp_no_na_jwdc_knear01' thru 'tfpp_no_na_jwdc_knear09'
-#repeat example below for other columns of interest
 tfpp_no_na_jwdc_knear10 <- knearneigh(tfpp_no_na_jwdc.xy, k=10, RANN=F)
 tfpp_no_na_jwdc_knear10_np <- tfpp_no_na_jwdc_knear10$np
 tfpp_no_na_jwdc_knear10_d.weights <- vector(mode = "list", length = tfpp_no_na_jwdc_knear10_np)
@@ -129,6 +127,25 @@ tfpp_no_na_jwdc_spknear10IDW <- nb2listw(tfpp_no_na_jwdc_knear10nb, glist = tfpp
 #include 'style="C"' in above code (after specifying glist) to remove row-standardization--see "An Introduction to Mapping and Spatial Modelling in R" (Harris, 2013)
 moran.test(tfpp_no_na_jwdc.xy$total_flowers_per_plant, tfpp_no_na_jwdc_spknear10IDW, alternative = "two.sided")
 #Moran's I = 0.07512508; p-value = 0.2766 ==> NOT significant...10 'neighbors' may be too many (due to low plant density & small sample size of "JWDC")
+#consider setting a cut-off distance for 'K nearest-neighbors' approach
+#the derivation of the test (Cliff and Ord, 1981, p. 18) assumes that the weights matrix is symmetric; 
+#for inherently non-symmetric matrices, such as k-nearest neighbour matrices, 'listw2U()' can be used to make the matrix symmetric
+
+#EXAMPLE: tfpp_no_na_jwdc_knear3 ==> create spatial weights matrix and convert to 'weights list' form
+tfpp_no_na_jwdc_knear3 <- knearneigh(tfpp_no_na_jwdc.xy, k=3, RANN=F)
+tfpp_no_na_jwdc_knear3_np <- tfpp_no_na_jwdc_knear3$np
+tfpp_no_na_jwdc_knear3_d.weights <- vector(mode = "list", length = tfpp_no_na_jwdc_knear3_np)
+for (i in 1:tfpp_no_na_jwdc_knear3_np) {
+  tfpp_no_na_jwdc_knear3_neighbours <- tfpp_no_na_jwdc_knear3$nn[i,]
+  tfpp_no_na_jwdc_knear3_distances <- tfpp_no_na_jwdc_d.matrix[i, tfpp_no_na_jwdc_knear3_neighbours]
+  tfpp_no_na_jwdc_knear3_d.weights[[i]] <- 1/tfpp_no_na_jwdc_knear3_distances
+}
+#also try '1/jwdc_knear3_distances^2' for inverse distance weighting (IDW)--it's also commonly used
+tfpp_no_na_jwdc_knear3nb <- knn2nb(tfpp_no_na_jwdc_knear3)
+tfpp_no_na_jwdc_spknear3IDW <- nb2listw(tfpp_no_na_jwdc_knear3nb, glist = tfpp_no_na_jwdc_knear3_d.weights)
+#include 'style="C"' in above code (after specifying glist) to remove row-standardization--see "An Introduction to Mapping and Spatial Modelling in R" (Harris, 2013)
+moran.test(tfpp_no_na_jwdc.xy$total_flowers_per_plant, tfpp_no_na_jwdc_spknear3IDW, alternative = "two.sided")
+#Moran's I = 0.21931552; p-value = 0.03473 ==> SIGNIFICANT...3 'neighbours' performed better than 10 for "JWDC" (due to low plant density & small sample size)
 #consider setting a cut-off distance for 'K nearest-neighbors' approach
 #the derivation of the test (Cliff and Ord, 1981, p. 18) assumes that the weights matrix is symmetric; 
 #for inherently non-symmetric matrices, such as k-nearest neighbour matrices, 'listw2U()' can be used to make the matrix symmetric
@@ -180,7 +197,7 @@ Moran.I(tfpp_no_na_ps.xy$total_flowers_per_plant, tfpp_no_na_ps.dists.inv, alter
 #Moran's I = 0.1470482; p-value = 6.006263e-09 ==> SIGNIFICANT
 #should this--or any other Moran's I test--be two-sided?
 
-#EXAMPLE: Moran Scatterplot for 'total_flowers_per_plant' in "JWDC"
+#EXAMPLE: Moran Scatterplot for 'total_flowers_per_plant' in "PS"
 moran.plot(tfpp_no_na_ps.xy$total_flowers_per_plant, tfpp_no_na_ps_spknear10IDW)
 #scale x & y axes for interpretation (i.e., same increments, same dimensions) 
 #may need to row-standardize, but I think it already is...
