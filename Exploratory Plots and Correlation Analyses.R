@@ -113,11 +113,14 @@ coordinates(tfpp_no_na_ps.xy) = c(4,5)
 
 #create distance matrices for subsets containing no NA values for 'total_flowers_per_plant'
 tfpp_no_na_jwdc_d.matrix <- spDists(coordinates(tfpp_no_na_jwdc.xy), coordinates(tfpp_no_na_jwdc.xy))
+
 tfpp_no_na_ps_d.matrix <- spDists(coordinates(tfpp_no_na_ps.xy), coordinates(tfpp_no_na_ps.xy))
+
 #another way to do the same thing (useful for certain packages)
 tfpp_no_na_jwdc.dists <- as.matrix(dist(cbind(tfpp_no_na_jwdc.xy$x_meters, tfpp_no_na_jwdc.xy$y_meters)))
 tfpp_no_na_jwdc.dists.inv <- 1/tfpp_no_na_jwdc.dists
 diag(tfpp_no_na_jwdc.dists.inv) <- 0
+
 tfpp_no_na_ps.dists <- as.matrix(dist(cbind(tfpp_no_na_ps.xy$x_meters, tfpp_no_na_ps.xy$y_meters)))
 tfpp_no_na_ps.dists.inv <- 1/tfpp_no_na_ps.dists
 diag(tfpp_no_na_ps.dists.inv) <- 0
