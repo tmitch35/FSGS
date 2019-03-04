@@ -18,7 +18,8 @@ library(devtools)
 library(ggpubr)
 library(plyr)
 library(dplyr)
-
+library(raster)
+library(spatstat)
 
 #load .CSV file (practice data) for exploratory plots  
 practice_data <- read.csv("~/Desktop/Research/Fieldwork Spreadsheets/Fall 2018/Excel Files for Analysis/Fall_2018_Data_for_R_Practice.csv")
@@ -304,3 +305,26 @@ summary(jwdc_fh_only_height_no_na)
 ps_fh_only_height <- subset(ps, sex=="H" | sex=="F")
 ps_fh_only_height_no_na <- ps_fh_only_height[!is.na(ps_fh_only_height$tot_plant_height_cm), ]
 summary(ps_fh_only_height_no_na)
+
+#calculate nn distance summaries
+jwdc_fh_only.xy <- subset(jwdc.xy, sex=="H" | sex=="F")
+coordinates(jwdc_fh_only.xy) = c(4,5)
+nns_jwdc <- nndist(jwdc_fh_only$x_meters,jwdc_fh_only$y_meters)
+summary(nns_jwdc)
+summary(jwdc_fh_only)
+
+mean(nndist(nns_jwdc, k=1)) #these values are INCORRECT...maybe ==> fix it!
+mean(nndist(nns_jwdc, k=2)) #these values are INCORRECT...maybe ==> fix it!
+#create loop function to continue to k=98 (i.e., n-1)
+
+ps_fh_only.xy <- subset(ps.xy, sex=="H" | sex=="F")
+coordinates(ps_fh_only.xy) = c(4,5)
+nns_ps <- nndist(ps_fh_only$x_meters,ps_fh_only$y_meters)
+summary(nns_ps)
+summary(ps_fh_only)
+
+mean(nndist(nns_ps, k=1)) #these values are INCORRECT...maybe ==> fix it!
+mean(nndist(nns_ps, k=2)) #these values are INCORRECT...maybe ==> fix it!
+#create loop function to continue to k=157 (i.e., n-1)
+
+#look at lines 244 and 269 in "Population Maps and Exploratory Analyses.R" for help w/ syntax
